@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>GameHub</title>
   <link rel="stylesheet" href="/css/style.css">
-  <% if(isDiceRoller){ %>
+  <% if(typeof isDiceRoller !== 'undefined' && isDiceRoller){ %>
     <link rel="stylesheet" href="/css/diceRoller.css">
   <% } %>
 </head>
