@@ -2,26 +2,33 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <title>GameHub</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <% if(typeof isDiceRoller !== 'undefined' && isDiceRoller){ %>
-    <link rel="stylesheet" href="/css/diceRoller.css">
-  <% } %>
+    <meta charset="UTF-8">
+    <title>GameHub</title>
+    <% if(typeof css !== 'undefined'){ %>
+      <link rel="stylesheet" href="/css/<%= css %>">
+    <% } %>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
 </head>
 
 <body>
-  <header>
-    <h1>
-      <a href="/">GameHub</a>
-    </h1>
-    <nav>
-      <% games.forEach(game => { %>
-        <li><a href="/game/<%= game.name %>"><%= game.title %></a></li>
-      <% }); %>
-      <!--
-      <li><a href="/game/diceRoller">Dice Roller</a></li>
-      <li><a href="/game/fourchette">Fourchette</a><li>
-      -->
-    </nav>
-  </header>
+    <header>
+        <h1>
+            <a href="/">GameHub</a>
+        </h1>
+        <nav>
+            <ul>
+            <% games.forEach(game=> { %>
+                <li><a href="/game/<%= game.name %>"><%= game.title %></a></li>
+            <% }); %>
+            </ul>
+        </nav>
+    </header>
+
+    <h3>
+        <% if (typeof title !=='undefined' ){ %>
+            <%= title %>
+        <% } else { %>
+            Index
+        <% } %>
+    </h3>

@@ -19,9 +19,8 @@ router.get("/game/:nomDuJeu",(req,res, next)=>{
     const game = games.find(game => game.name == req.params.nomDuJeu);
 
     res.locals.isDiceRoller = false;
-
+    res.locals.isRPG = false;
     if (!game) {
-        console.log('########################### erreur #####################');
         next();
         return;
     }
@@ -29,10 +28,16 @@ router.get("/game/:nomDuJeu",(req,res, next)=>{
     if (game.name == 'diceRoller') {
         res.locals.isDiceRoller = true;
     }
-    //else {
-    //    isDiceRoller = false;
-    //}
-    res.render(game.name);
+    if (game.name == 'rpg') {
+        res.locals.isRPG = true;
+    }
+
+    res.render(game.name, {
+        name: game.name,
+        title: game.title,
+        css: game.cssFile,
+        js: game.jsFile
+    });
 });
 
 
