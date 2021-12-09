@@ -15,7 +15,7 @@ router.get("/",(req,res)=>{
 });
 
 router.get("/game/:nomDuJeu",(req,res, next)=>{
-    const games = req.games;
+    const games = res.locals.games;
     const game = games.find(game => game.name == req.params.nomDuJeu);
 
     res.locals.isDiceRoller = false;

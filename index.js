@@ -10,14 +10,15 @@ server.set('views', './app/views');
 server.use(express.static('public'));
 
 const games = require('./games.json');
-server.locals.games = games;
 
-server.use((req, res, next) => {
-    req.games = server.locals.games;
+
+ server.use((req, res, next) => {
+    res.locals.games = games;
     next();
-});
+ })
 
 server.use(router);
+
 
 const PORT = 3000;
 server.listen(PORT,()=>{

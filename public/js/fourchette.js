@@ -49,3 +49,4 @@ if (enteredNumber == searchedNumber) {
     // on prévient l'utilisateur qu'il a abandonné
     alert('Abandon après ' + attempt + ' essais. Dommage !');
 }
+
