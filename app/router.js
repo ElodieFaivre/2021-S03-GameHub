@@ -22,7 +22,6 @@ router.get("/game/:nomDuJeu",(req,res, next)=>{
     res.locals.isRPG = false;
     if (!game) {
         next();
-        return;
     }
 
     if (game.name == 'diceRoller') {
@@ -40,12 +39,12 @@ router.get("/game/:nomDuJeu",(req,res, next)=>{
     });
 });
 
-
-
-
-
+//Gestion de la page 404
 router.use((req, res, next) => {
-    res.status(404).render('404');
+    res.status(404).render('404', {
+        css:'404.css',
+        title:"Désolé, cette page n'existe pas"
+    });
 });
 
 module.exports = router;

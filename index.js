@@ -1,4 +1,5 @@
 const express = require("express");
+const log=require("./app/middlewares/log");
 const router = require("./app/router");
 const server = express();
 
@@ -12,10 +13,14 @@ server.use(express.static('public'));
 const games = require('./games.json');
 
 
- server.use((req, res, next) => {
+server.use((req, res, next) => {
     res.locals.games = games;
     next();
- })
+});
+
+
+server.use(log.logDateIpPath);
+
 
 server.use(router);
 
