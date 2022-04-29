@@ -1,5 +1,11 @@
 [
   {
+    "name": "memory",
+    "title": "Memory",
+    "cssFile": "memory.css",
+    "jsFile": "memory.js"
+  },
+  {
     "name": "fourchette",
     "title": "Jeu de la fourchette",
     "cssFile": null,
@@ -18,3 +24,4 @@
     "jsFile": "rpg.js"
   }
 ]
+  
